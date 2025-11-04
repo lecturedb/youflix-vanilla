@@ -1,0 +1,194 @@
+/* 앱 컨테이너 */
+#detail_modal {
+  width: 75%;
+  max-width: 860px;
+  min-width: 360px;
+  height: 85vh;
+  min-height: 470px;
+  display: flex;
+  flex-direction: column;
+  border-radius: 8px;
+  background-color: white;
+  box-shadow: 5px 10px 10px 1px rgba(0, 0, 0, 0.3);
+}
+
+/* 상단 메인 비디오 */
+#main_video {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border-radius: 8px 8px 0 0;
+  overflow: hidden;
+}
+
+/* 가운데 정보 영역 */
+#info {
+  max-height: 120px;
+  display: flex;
+  gap: 5px;
+  border-bottom: 1px solid #ccc;
+  overflow: auto;
+}
+#video_meta,
+#channel_info {
+  flex: 1;
+  padding: 8px;
+}
+
+/* 하단 재생 목록 섹션 */
+#playlist {
+  padding: 5px;
+  flex: 1;
+  overflow: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  border-radius: 0 0 8px 8px;
+}
+#playlist h4 {
+  margin: 0;
+}
+
+/* 채널 정보 컴포넌트 (구조/배치) */
+.channel-row {
+  display: flex;
+  gap: 5px;
+  align-items: center;
+}
+.channel-avatar {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+/* 재생 목록 아이템 */
+.item {
+  display: flex;
+  gap: 10px;
+  padding: 3px;
+  align-items: flex-start;
+}
+
+/* 썸네일 (1:2 중 1) */
+.thumb_detail {
+  flex: 2 1 0;
+  aspect-ratio: 16 / 9;
+  border-radius: 3px;
+  cursor: pointer;
+  overflow: hidden;
+}
+.thumb_detail img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* 아이템 메타 (1:2 중 2) */
+.item-meta {
+  flex: 3 1 0;
+  display: flex;
+  flex-direction: column;
+  height: var(--item-h);
+  overflow: auto;
+}
+
+/* 비디오 메타 텍스트 */
+.meta-title {
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+.meta-sub {
+  font-size: 12px;
+  color: #555;
+}
+
+/* 채널 텍스트 */
+.channel-title {
+  font-weight: 700;
+}
+.channel-stats {
+  font-size: 12px;
+  color: #555;
+}
+.channel-desc {
+  margin-top: 10px;
+  font-size: 12px;
+  color: #555;
+}
+
+/* 재생목록 텍스트 */
+.item-title {
+  font-weight: 600;
+  margin-bottom: 4px;
+  font-size: 0.9rem;
+}
+.item-sub {
+  font-size: 0.8rem;
+  color: #666;
+}
+
+/* 왼쪽 묶음: main_video + info (세로 유지) */
+.main_info_group {
+  display: flex;
+  flex-direction: column;
+}
+
+@media (min-aspect-ratio: 4/3) {
+  /* 레이아웃 전환: playlist 를 오른쪽, 높이 동기화 */
+  #detail_modal {
+    display: flex;
+    flex-direction: row;
+    min-width: 85vw;
+    min-height: 90vh;
+  }
+  .main_info_group {
+    flex: 4 1 0;
+  }
+  #main_video {
+    position: relative;
+    flex-shrink: 0;
+    border-radius: 8px 0 0 0;
+  }
+  #info {
+    max-height: none;
+    border-bottom: 0;
+  }
+  #playlist {
+    flex: 1 1 0;
+    align-self: stretch;
+    border-left: 1px solid #ccc;
+    border-top: 0;
+    border-radius: 0 8px 8px 0;
+    overflow: auto;
+    padding: 5px;
+  }
+
+  #playlist .item-meta,
+  #playlist .item-title,
+  #playlist .item-sub,
+  #playlist .meta-title,
+  #playlist .meta-sub {
+    display: none !important;
+  }
+
+  #playlist .thumb_detail {
+    position: relative;
+  }
+  #playlist .thumb_detail::after {
+    content: attr(data-title);
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    color: #fff;
+    background: rgba(0, 0, 0, 0.6);
+    opacity: 0;
+    transition: 0.2s;
+    padding: 4px;
+    font-size: 0.9rem;
+  }
+  #playlist .thumb_detail:hover::after {
+    opacity: 1;
+  }
+}

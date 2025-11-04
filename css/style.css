@@ -1,0 +1,180 @@
+header {
+  height: 40px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 10px;
+  padding: 3px 5px 0 5px;
+  background-color: #2d7246;
+  color: white;
+  margin-bottom: 10px;
+  box-sizing: border-box;
+}
+header h2 {
+  font-size: 1.6rem;
+  font-weight: 500;
+  letter-spacing: 0.03rem;
+  margin: 0 2px;
+}
+header ul {
+  display: flex;
+  gap: 2px;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+header ul li {
+  min-width: max-content;
+  padding: 8px 5px 0px 5px;
+  cursor: pointer;
+  letter-spacing: 0.05rem;
+  border-bottom: 4px solid transparent; /* 기본 상태에 투명한 border 미리 설정 */
+  transition: border-color 0.2s ease;
+}
+header ul li:hover {
+  border-bottom-color: #fff;
+}
+header ul li.on {
+  color: #80c399;
+}
+header .cta {
+  min-width: max-content;
+  margin-left: auto; /* 오른쪽 끝으로 밀기 */
+  padding: 8px 8px 5px 8px;
+  margin-bottom: 3px;
+  background: #4ca36a;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+header .cta:hover {
+  background: #5cc17e;
+}
+header .hamburger {
+  display: none;
+  background: transparent;
+  color: #fff;
+  border: 0;
+  font-size: 1.5rem;
+  transform: translateY(-3px);
+  cursor: pointer;
+}
+
+#container {
+  padding: 10px 8px;
+}
+.card {
+  flex-shrink: 0;
+  width: 120px;
+  height: 120px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: #d3d3d3;
+  border-radius: 8px;
+  text-align: center;
+  padding: 12px 10px 8px;
+  transition: transform 0.15s;
+}
+.card:hover {
+  transform: translateY(-3px);
+}
+.thumb {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: #aaa;
+  margin: 0 auto 8px;
+  cursor: pointer;
+  transition: transform 0.15s;
+  overflow: hidden;
+  background-position: center;
+  background-size: cover;
+}
+.thumb:hover {
+  background-color: #999;
+  transform: scale(1.1);
+}
+.name {
+  font-weight: 600;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: transform 0.15s;
+}
+.name:hover {
+  transform: scale(1.1);
+  color: blue;
+}
+
+.category {
+  margin-bottom: 20px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid #bbb;
+  overflow-x: auto;
+}
+.category h2 {
+  font-size: 1.3rem;
+  font-weight: 400;
+  margin: 0 0 8px;
+}
+.cards {
+  display: flex;
+  /* flex-wrap: wrap; */
+  gap: 6px;
+}
+
+footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 16px;
+  background: #2d7246;
+  color: #fff;
+  font-size: 0.9rem;
+}
+.footer-actions {
+  display: flex;
+  gap: 8px;
+}
+.footer-actions button {
+  background: #ffffff33;
+  color: #fff;
+  border: none;
+  padding: 6px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.footer-actions button:hover {
+  background: #ffffff55;
+}
+
+/* 모바일(좁은 화면) 대응 */
+@media (max-width: 420px) {
+  header .hamburger {
+    display: flex; /* 햄버거 표시 */
+    justify-content: center;
+    align-items: center;
+  }
+  /* 드롭다운 스타일 (헤더 아래로 펼쳐짐) */
+  header ul {
+    display: none;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 40px; /* 헤더 기본 높이만큼 아래 */
+    background: #2d7246;
+    padding: 3px 6px;
+    border-top: 1px solid rgba(255, 255, 255, 0.15);
+  }
+  header.open ul {
+    height: 40px;
+    display: block; /* 열렸을 때 보임 */
+  }
+  header ul li {
+    display: inline-block; /* 가로로 흐르되 줄바꿈 가능 */
+    margin-right: 3px;
+    padding-bottom: 6px;
+  }
+}

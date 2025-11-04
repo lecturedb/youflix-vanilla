@@ -1,0 +1,80 @@
+.carousel {
+  position: relative;
+  padding: 4px 48px;
+}
+.carousel .cards {
+  padding-top: 6px;
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 6px;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  scroll-snap-type: x mandatory;
+}
+.carousel .card {
+  flex: 0 0 auto;
+  scroll-snap-align: start;
+  position: relative;
+}
+.carousel-btn {
+  position: absolute;
+  background-color: transparent;
+  top: 50%;
+  transform: translateY(-50%);
+  border: none;
+  color: #333;
+  cursor: pointer;
+  font-size: 3rem;
+  transition: all 0.1s;
+}
+.carousel-btn:hover {
+  border-radius: 15%;
+  background-color: #eee;
+  font-weight: 600;
+}
+.carousel-btn.prev {
+  left: 5px;
+}
+.carousel-btn.next {
+  right: 5px;
+}
+
+.card {
+  width: var(--card-w);
+}
+
+.carousel-btn:disabled {
+  opacity: 0.1; /* 흐리게 */
+}
+
+.card-del,
+.card-edit {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  border: none;
+  border-radius: 25%;
+  background: rgba(200, 0, 0, 0.2);
+  color: #fff;
+  font-size: 20px;
+  text-align: center;
+  cursor: pointer;
+  opacity: 0;
+  transition: opacity 0.12s ease;
+}
+.card:hover .card-del,
+.card:hover .card-edit {
+  opacity: 1;
+}
+.card-del:hover {
+  background: rgba(200, 0, 0, 0.45);
+}
+.card-edit:hover {
+  background: rgba(0, 200, 0, 0.85);
+}
+.card-edit {
+  background: rgba(0, 200, 0, 0.5);
+  top: 34px;
+  right: 5px;
+  font-size: 16px;
+}

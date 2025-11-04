@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Youflix-Vanilla</title>
+    <link rel="stylesheet" href="./css/global.css" />
+    <link rel="stylesheet" href="./css/style.css" />
+    <link rel="stylesheet" href="./css/ch-modal.css" />
+    <link rel="stylesheet" href="./css/detail-modal.css" />
+    <link rel="stylesheet" href="./css/carousel.css" />
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
+  </head>
+  <body>
+    <header>
+      <h2>YouFlix</h2>
+      <button class="hamburger">☰</button>
+      <ul id="header-menu"></ul>
+      <button class="cta">채널 추가</button>
+    </header>
+    <main id="container"></main>
+    <div class="modal_container">
+      <div id="input_modal">
+        <form id="key_form">
+          <input id="key_input" type="text" placeholder="YouTube API Key 입력" />
+          <button id="key_btn" type="submit">저장</button>
+        </form>
+        <form id="handle_form">
+          <input id="handle_input" type="text" value="@" placeholder="@GoogleDevelopers" />
+          <button id="handle_btn" type="submit">채널 ID 찾기</button>
+        </form>
+        <div id="handle_result"></div>
+      </div>
+    </div>
+    <div class="modal_container">
+      <div id="detail_modal">
+        <div class="main_info_group">
+          <div id="main_video"></div>
+          <section id="info">
+            <div id="video_meta"></div>
+            <div id="channel_info"></div>
+          </section>
+        </div>
+        <section id="playlist">
+          <h4>최신 동영상</h4>
+          <div></div>
+        </section>
+      </div>
+    </div>
+    <footer>
+      <p>© 2025 YouFlix - Vanilla JS Edition</p>
+      <div class="footer-actions">
+        <button id="file_id_btn">파일 ID 저장</button>
+        <button id="import_btn">데이터 가져오기</button>
+        <button id="export_btn">데이터 내보내기</button>
+      </div>
+    </footer>
+    <script src="./js/main.js" defer type="module"></script>
+  </body>
+</html>

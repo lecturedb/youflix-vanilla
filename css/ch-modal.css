@@ -1,0 +1,66 @@
+.modal_container {
+  position: fixed; /* 화면에 고정 */
+  inset: 0; /* top/right/bottom/left: 0 */
+  display: none;
+  background: rgba(0, 0, 0, 0.7);
+}
+.modal_container.show {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#input_modal {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  display: block;
+  width: 60vw;
+  height: 55vh;
+  min-height: 300px;
+  max-width: 90vw;
+  background: #fff;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.25);
+}
+#input_modal form {
+  display: flex;
+  gap: 8px;
+}
+#input_modal input {
+  width: 200px;
+  padding: 8px;
+  margin: 10px 0;
+}
+#input_modal button {
+  padding: 8px 12px;
+  margin: 10px 0;
+}
+#input_modal #handle_result {
+  display: inline-block;
+  margin: 10px 0;
+}
+#input_modal select {
+  padding: 6px 12px;
+  font-size: 16px;
+}
+#input_modal #key_input {
+  height: 25px;
+  width: 250px;
+  padding: 6px;
+  margin: 5px 0;
+}
+#input_modal #key_btn {
+  height: 25px;
+  padding: 4px 5px;
+  margin: 5px 0;
+  font-size: 0.8rem;
+}
+
+#img_update_btn {
+  margin-left: 10px;
+  padding: 4px 8px;
+  font-size: 0.8rem;
+  cursor: pointer;
+}
