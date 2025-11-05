@@ -55,12 +55,22 @@ container.innerHTML = `<p>데이터 로딩 중...</p>`;
 let data = [];
 
 if (!driveId?.trim() || !clientId?.trim()) {
-  container.innerHTML = `
-    <p>
-      구글 드라이브 파일 ID 또는 OAuth 클라이언트 ID가 설정되어 있지 않습니다.<br>
-      파일 ID 저장 버튼을 누르고 ID 를 입력해주세요.
-    </p>
-  `;
+  alert(
+    [
+      "유튜브 API 키, 구글 드라이브 파일 ID 및 OAuth 클라이언트 ID 가 설정되지 않았습니다.",
+      "지금은 기본 데이터로 화면을 표시합니다.",
+      "설정 후에는 ‘파일 ID 저장’과 ‘채널 추가’에서 값을 입력해 주세요.",
+    ].join("\n")
+  );
+  try {
+    const res = await fetch("./youflix-data.json", { cache: "no-store" });
+    if (!res.ok) throw new Error("기본 데이터 로드 실패");
+    data = await res.json();
+    mainRender("ALL");
+  } catch (e) {
+    console.error(e);
+    container.innerHTML = `<p>기본 데이터를 불러오지 못했습니다.</p>`;
+  }
 } else {
   try {
     data = await fetchFromDrive(youtubeKey);
